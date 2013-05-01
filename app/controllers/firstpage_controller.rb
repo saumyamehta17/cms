@@ -1,0 +1,2 @@
+class FirstpageController < ApplicationController
+end
