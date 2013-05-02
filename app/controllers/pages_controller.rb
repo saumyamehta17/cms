@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @pages = Page.where(:user_id => current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     @page = Page.find(params[:id])
-    @pages = Page.all
+    @pages = Page.where(:user_id => current_user.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @page }
@@ -25,7 +25,7 @@ class PagesController < ApplicationController
   # GET /pages/new.json
   def new
     @page = Page.new
-    @pages = Page.all
+    @pages = Page.where(:user_id => current_user.id)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @page }
@@ -34,7 +34,7 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
-    @pages = Page.all
+    @pages = Page.where(:user_id => current_user.id)
     @page = Page.find(params[:id])
   end
 
@@ -42,6 +42,7 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(params[:page])
+    @page.user_id=current_user.id
   @pages = Page.all
     respond_to do |format|
       if @page.save
@@ -58,7 +59,7 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page = Page.find(params[:id])
-    @pages = Page.all
+    @pages = Page.where(:user_id => current_user.id)
     respond_to do |format|
       if @page.update_attributes(params[:page])
         format.html { redirect_to @page, notice: 'Page was successfully updated.' }
