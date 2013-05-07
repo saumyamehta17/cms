@@ -9,9 +9,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
   # attr_accessible :title, :body
 
-  validates :username, :presence => true
+  # validates :username, :presence => true
   has_many :pages
-  has_one :profile , :dependent => :destroy
+  has_one :profile 
+ 
 
   after_create :profile_intialize
 
