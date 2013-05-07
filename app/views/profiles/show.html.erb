@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <p id="notice "><%= notice %></p>
+=======
+<p id="notice"><%= notice %></p>
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c
 
 <p>
   <b>Firstname:</b>
@@ -11,6 +15,7 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <b>Phoneno:</b>
   <%= @profile.phoneno %>
 </p>
@@ -21,5 +26,17 @@
 
 
 <%= link_to 'create location' , new_address_path %> </br >
+=======
+  <b>Phone:</b>
+  <%= @profile.phone %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= image_tag(@profile.photo.url(:small)) %>
+</p>
+
+
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', pages_path %>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Listing profiles</h1>
 
 <table>
@@ -27,3 +28,12 @@
 <br />
 
 <%= link_to 'New Profile', new_profile_path %>
+=======
+<% @profiles.each do |p| %>
+ firstname:<%= p.firstname %>
+ lastname:<%= p.lastname %>
+ phone:<%= p.phone %>
+ <!-- photo:<%= image_tag(p.photo) %> -->
+ <% end %>
+ <%= link_to "new" , new_profile_path %>
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c

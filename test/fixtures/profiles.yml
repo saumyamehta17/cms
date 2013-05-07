@@ -3,11 +3,21 @@
 one:
   firstname: MyString
   lastname: MyString
+<<<<<<< HEAD
   phoneno: 1
   user: 
+=======
+  phone: MyString
+  'no': 1
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c
 
 two:
   firstname: MyString
   lastname: MyString
+<<<<<<< HEAD
   phoneno: 1
   user: 
+=======
+  phone: MyString
+  'no': 1
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c

@@ -57,10 +57,17 @@ class ProfilesController < ApplicationController
   # PUT /profiles/1.json
   def update
     @profile = Profile.find(params[:id])
+<<<<<<< HEAD
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+=======
+    # redirect_to @profile
+    respond_to do |format|
+      if @profile.update_attributes(params[:profile])
+        format.html { render action: "show", notice: 'Profile was successfully updated.' }
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

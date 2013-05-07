@@ -1,8 +1,11 @@
 Cms::Application.routes.draw do
   
+<<<<<<< HEAD
   resources :addresses
 
 
+=======
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c
   resources :profiles
 
 

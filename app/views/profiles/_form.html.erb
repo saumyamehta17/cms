@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <%= form_for @profile , :html => {:multipart => true } do |f| %>
+=======
+<%= form_for (@profile ) do |f| %>
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -20,8 +24,13 @@
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
+<<<<<<< HEAD
     <%= f.label :phoneno %><br />
     <%= f.number_field :phoneno %>
+=======
+    <%= f.label :phone %><br />
+    <%= f.number_field :phone %>
+>>>>>>> fe2516288b2b46312419d7289553e5acec78628c
   </div>
   <div class="field">
     <%= f.label :photo %><br />
