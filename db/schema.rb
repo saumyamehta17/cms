@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501165147) do
+ActiveRecord::Schema.define(:version => 20130507165449) do
+
+  create_table "addresses", :force => true do |t|
+    t.text     "addr"
+    t.integer  "profile_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "addresses", ["profile_id"], :name => "index_addresses_on_profile_id"
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.integer  "address_id"
+    t.integer  "country_id"
+    t.integer  "state_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "cities", ["address_id"], :name => "index_cities_on_address_id"
+  add_index "cities", ["country_id"], :name => "index_cities_on_country_id"
+  add_index "cities", ["state_id"], :name => "index_cities_on_state_id"
 
   create_table "contentfiles", :force => true do |t|
     t.string   "title"
@@ -20,6 +42,24 @@ ActiveRecord::Schema.define(:version => 20130501165147) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.integer  "address_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "countries", ["address_id"], :name => "index_countries_on_address_id"
+
+  create_table "locations", :force => true do |t|
+    t.text     "address"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "locations", ["user_id"], :name => "index_locations_on_user_id"
+
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -27,6 +67,32 @@ ActiveRecord::Schema.define(:version => 20130501165147) do
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
   end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.integer  "phoneno"
+    t.integer  "user_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.integer  "address_id"
+    t.integer  "country_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "states", ["address_id"], :name => "index_states_on_address_id"
+  add_index "states", ["country_id"], :name => "index_states_on_country_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

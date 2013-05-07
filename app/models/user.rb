@@ -11,4 +11,11 @@ class User < ActiveRecord::Base
 
   validates :username, :presence => true
   has_many :pages
+  has_one :profile
+  
+  after_create :profile_intialize
+
+  def profile_intialize
+    create_profile
+  end
 end

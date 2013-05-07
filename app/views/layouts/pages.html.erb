@@ -6,6 +6,7 @@
   <title>Cms</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
    <%= javascript_include_tag "application" %>
+    <%= yield :head %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -29,7 +30,8 @@
 <div class='container'>
 <div class='pull-right'>  
 Welcome <%= current_user.username %> | 
-<%= link_to "logout", destroy_user_session_path , method: :delete  %>
+<%= link_to "logout", destroy_user_session_path , method: :delete  %> |
+<%= link_to "Profile" , profile_path(current_user.profile) %>
  </div> 
 <%= yield %>
 <div>
